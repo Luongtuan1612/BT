@@ -1,0 +1,529 @@
+/* 🌷 Toàn bộ trang */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  color: #ff5ea2;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+/* 🌸 Nền hồng nhẹ */
+.home, .birthday {
+  background: linear-gradient(to bottom right, #ffe6f2, #ffd6ec, #fff0f7);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+/* 💖 Logo */
+.logo {
+  position: absolute;
+  top: 25px;
+  left: 40px;
+  font-size: 1.3rem;
+  color: #ff69b4;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px #ffd6ec, 0 0 15px #fff0f7;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInLogo 1.5s ease forwards 0.5s, logoGlow 3s infinite ease-in-out alternate;
+  user-select: none;
+}
+
+@keyframes fadeInLogo { to { opacity: 1; transform: translateY(0); } }
+@keyframes logoGlow {
+  0% { text-shadow: 0 0 8px #ffd6ec, 0 0 15px #fff0f7; }
+  50% { text-shadow: 0 0 15px #ff9ecb, 0 0 25px #ffe6f2; }
+  100% { text-shadow: 0 0 8px #ffd6ec, 0 0 15px #fff0f7; }
+}
+
+/* 💗 Trái tim trung tâm */
+.main-heart {
+  font-size: 80px;
+  animation: heartbeat 1.5s infinite ease-in-out, glow 2s ease-in-out infinite;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+}
+
+@keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 20px #ff9ecb, 0 0 40px #ffd1e8; }
+  50% { text-shadow: 0 0 40px #ffb3d9, 0 0 80px #ffe6f2; }
+}
+
+/* 💕 Dòng chữ viết tay */
+.love-text {
+  font-size: 1.4rem;
+  color: transparent;
+  margin-top: 25px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  text-align: center;
+  background: linear-gradient(90deg, #ff9ecb, #ff5fa8, #ffd6ec);
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 300%;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid rgba(255, 182, 193, 0.6);
+  animation: typing 4s steps(28, end), glowFlow 3s ease-in-out infinite;
+  opacity: 0;
+}
+
+@keyframes typing { from { width: 0; } to { width: 100%; } }
+@keyframes glowFlow {
+  0% { background-position: 0% 50%; opacity: 0.8; }
+  50% { background-position: 100% 50%; opacity: 1; }
+  100% { background-position: 0% 50%; opacity: 0.8; }
+}
+
+/* 💖 Nút */
+button {
+  margin-top: 40px;
+  background-color: #ff99c8;
+  border: none;
+  padding: 12px 25px;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0 0 10px #ffb3d9;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+button:hover {
+  background-color: #ff77aa;
+  transform: scale(1.1);
+}
+
+/* 🌸 Tim bay quanh */
+.floating-heart {
+  position: absolute;
+  color: #ff85b0;
+  font-size: 20px;
+  opacity: 0.8;
+  animation: floatAround 6s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes floatAround {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+  25% { transform: translate(50px, -30px) scale(1.2); opacity: 1; }
+  50% { transform: translate(-30px, -60px) scale(0.9); opacity: 0.8; }
+  75% { transform: translate(-50px, 20px) scale(1.1); opacity: 1; }
+  100% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+}
+
+/* 🌸 Hoa hồng rơi */
+.petal {
+  position: absolute;
+  color: #ffb6c1;
+  font-size: 18px;
+  opacity: 0.8;
+  animation: fall 6s linear infinite;
+  pointer-events: none;
+}
+@keyframes fall {
+  0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+/* 🌙 Chuyển cảnh mờ */
+.fade-out { opacity: 1; animation: fadeOut 1s ease forwards; }
+@keyframes fadeOut { to { opacity: 0; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* 🌸 Hiệu ứng bay ra khi mở */
+.fade-in-top { opacity: 0; transform: translateY(-40px); animation: fadeInTop 1.2s ease forwards; }
+.fade-in-center { opacity: 0; transform: scale(0.5); animation: fadeInCenter 1.2s ease forwards; }
+.fade-in-bottom { opacity: 0; transform: translateY(40px); animation: fadeInBottom 1.2s ease forwards; }
+@keyframes fadeInTop { to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInCenter { to { opacity: 1; transform: scale(1); } }
+@keyframes fadeInBottom { to { opacity: 1; transform: translateY(0); } }
+
+/* 💥 Bùng sáng từ tim */
+.pulse-burst { animation: pulseBurst 1s ease-out forwards; }
+@keyframes pulseBurst {
+  0% { transform: scale(1); text-shadow: 0 0 20px #ffb6c1, 0 0 40px #ff99c8; }
+  50% { transform: scale(2.5); text-shadow: 0 0 60px #ff5fa8, 0 0 100px #ffe6f2; }
+  100% { transform: scale(0); opacity: 0; }
+}
+.burst-glow {
+  position: fixed;
+  top: 50%; left: 50%;
+  width: 300px; height: 300px;
+  transform: translate(-50%, -50%) scale(0);
+  background: radial-gradient(circle, rgba(255,192,203,0.7), transparent 70%);
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: 10;
+  animation: burstGlow 1s ease-out forwards;
+}
+@keyframes burstGlow {
+  0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+  50% { transform: translate(-50%, -50%) scale(2); opacity: 0.9; }
+  100% { transform: translate(-50%, -50%) scale(3); opacity: 0; }
+}
+
+/* 💖 Trang sinh nhật */
+.message { text-align: center; position: relative; }
+.message h2 { font-size: 1.8rem; opacity: 0; animation: fadeInUp 2s ease forwards; }
+.message h2:nth-child(1) { animation-delay: 1s; }
+.message h2:nth-child(2) { animation-delay: 3s; }
+.message h2:nth-child(3) { animation-delay: 5s; }
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.heart-rise {
+  position: absolute;
+  bottom: 0;
+  color: #ff80b5;
+  font-size: 20px;
+  opacity: 0.9;
+  animation: rise 5s linear forwards;
+}
+@keyframes rise {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+}
+/* 🌸 Ảnh bay lên */
+.photo-rise {
+  position: absolute;
+  bottom: 0;
+  opacity: 0.9;
+  border-radius: 15px;
+  animation: photoRise 10s linear forwards;
+  box-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
+  object-fit: cover;
+}
+
+@keyframes photoRise {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-50vh) rotate(10deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100vh) rotate(-10deg);
+  }
+}
+/* 🎈 Bong bóng ảnh lung linh */
+.photo-bubble {
+  position: absolute;
+  bottom: -150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255, 192, 203, 0.6);
+  box-shadow: 0 0 25px rgba(255, 182, 193, 0.6);
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.5), rgba(255,182,193,0.2));
+  animation: floatBubble 12s linear forwards;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ảnh trong bong bóng */
+.photo-bubble img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* 💫 Ánh sáng phản chiếu */
+.photo-bubble::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 192, 203, 0.3) 50%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
+  opacity: 0.2;
+  transform: rotate(25deg) translateX(-100%);
+  animation: lightShine 4s linear infinite;
+  border-radius: 50%;
+}
+
+@keyframes lightShine {
+  0% { transform: rotate(25deg) translateX(-100%); opacity: 0.2; }
+  50% { opacity: 0.5; }
+  100% { transform: rotate(25deg) translateX(100%); opacity: 0.2; }
+}
+
+/* ✨ Hiệu ứng bong bóng bay lên */
+@keyframes floatBubble {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.9;
+  }
+  25% {
+    transform: translateY(-25vh) translateX(30px) scale(1.05);
+  }
+  50% {
+    transform: translateY(-50vh) translateX(-20px) scale(1.1);
+  }
+  75% {
+    transform: translateY(-75vh) translateX(20px) scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.1);
+    opacity: 0;
+  }
+}
+/* 🌈 Hiệu ứng ánh sáng mờ phủ toàn trang (dreamy glow) */
+.glow-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+      circle at 30% 20%,
+      rgba(255, 182, 193, 0.2),
+      transparent 70%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      rgba(255, 192, 203, 0.15),
+      transparent 70%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 240, 245, 0.2),
+      transparent 80%
+    );
+  filter: blur(60px);
+  opacity: 0.8;
+  animation: glowShift 10s ease-in-out infinite alternate;
+}
+
+/* ✨ Ánh sáng di chuyển nhẹ nhàng */
+@keyframes glowShift {
+  0% {
+    background-position: 0% 0%, 100% 100%, 50% 50%;
+  }
+  100% {
+    background-position: 100% 100%, 0% 0%, 50% 60%;
+  }
+}
+/* 🌅 Hiệu ứng mở đầu cinematic intro */
+.intro-light {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #fff 20%, #ffe6f2 60%, #ffd6ec 80%);
+  opacity: 1;
+  animation: introFade 3s ease-out forwards;
+  z-index: 100;
+  pointer-events: none;
+}
+
+@keyframes introFade {
+  0% { opacity: 1; filter: blur(15px); }
+  60% { opacity: 0.8; filter: blur(10px); }
+  100% { opacity: 0; filter: blur(0); }
+}
+.birthday-letter h1 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #ffe0f7; /* 🌸 hồng nhạt pha trắng */
+  text-shadow: 0 0 15px rgba(255, 100, 180, 0.8);
+}
+
+.birthday-letter p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ffffff; /* 🌙 trắng */
+  text-shadow: 0 0 8px rgba(255, 100, 200, 0.5), 0 0 15px rgba(255, 255, 255, 0.4);
+  margin: 15px 0;
+}
+
+.birthday-letter h2 {
+  font-size: 1.5rem;
+  margin-top: 30px;
+  color: #ffd4f0; /* 💕 hồng trắng nhẹ */
+  text-shadow: 0 0 10px rgba(255, 150, 220, 0.7), 0 0 20px rgba(255, 230, 250, 0.5);
+}
+
+
+.birthday-letter h1 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #ff6fa0;
+  text-shadow: 0 0 10px #ffd6ec;
+}
+
+.birthday-letter h2 {
+  font-size: 1.5rem;
+  margin-top: 30px;
+  color: #ff77aa;
+  text-shadow: 0 0 15px #ffe6f2;
+}
+
+.birthday-letter p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ff5897;
+  text-shadow: 0 0 6px rgba(255, 240, 247, 0.7);
+  margin: 15px 0;
+}
+
+/* ✨ Hiệu ứng từng đoạn hiện dần */
+.fade-line {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1.5s ease forwards;
+}
+
+.fade-line:nth-child(1) { animation-delay: 2.5s; }
+.fade-line:nth-child(2) { animation-delay: 4.5s; }
+.fade-line:nth-child(3) { animation-delay: 7s; }
+.fade-line:nth-child(4) { animation-delay: 10s; }
+.fade-line:nth-child(5) { animation-delay: 13s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* 💌 Hiệu ứng thư sinh nhật */
+.birthday-letter {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  max-width: 800px;
+  margin: 0 auto;
+  z-index: 5;
+  padding: 25px 30px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 40px rgba(255, 182, 193, 0.4);
+  animation: fadeIn 3s ease forwards;
+  text-shadow: 0 0 10px rgba(255, 102, 204, 0.5), 0 0 20px rgba(255, 204, 255, 0.4);
+}
+
+.birthday-letter h1 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #ffe0f7;
+  text-shadow: 0 0 15px rgba(255, 100, 180, 0.8);
+}
+
+.birthday-letter p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 100, 200, 0.5), 0 0 15px rgba(255, 255, 255, 0.4);
+  margin: 15px 0;
+}
+
+.birthday-letter h2 {
+  font-size: 1.5rem;
+  margin-top: 30px;
+  color: #ffd4f0;
+  text-shadow: 0 0 10px rgba(255, 150, 220, 0.7), 0 0 20px rgba(255, 230, 250, 0.5);
+}
+
+/* ✨ Hiệu ứng từng đoạn hiện dần */
+.fade-line {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1.5s ease forwards;
+}
+.fade-line:nth-child(1) { animation-delay: 2.5s; }
+.fade-line:nth-child(2) { animation-delay: 4.5s; }
+.fade-line:nth-child(3) { animation-delay: 7s; }
+.fade-line:nth-child(4) { animation-delay: 10s; }
+.fade-line:nth-child(5) { animation-delay: 13s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🌟 Mũi tên chuyển trang (hiệu ứng lật) */
+.arrow-down {
+  font-size: 2rem;
+  margin-top: 25px;
+  animation: bounceArrow 1.5s infinite ease-in-out;
+  cursor: pointer;
+  user-select: none;
+  filter: drop-shadow(0 0 10px #ffb3d9);
+}
+@keyframes bounceArrow {
+  0%, 100% { transform: translateY(0); opacity: 0.9; }
+  50% { transform: translateY(10px); opacity: 1; }
+}
+
+/* 💫 Hiệu ứng lật trang */
+.page {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: transform 1.2s ease, opacity 1.2s ease;
+}
+.page-1.active { transform: rotateY(0deg); opacity: 1; z-index: 5; }
+.page-1.flipped { transform: rotateY(-180deg); opacity: 0; }
+
+.page-2 {
+  transform: rotateY(180deg);
+  opacity: 0;
+  z-index: 4;
+  background: linear-gradient(to bottom right, #ffe6f2, #ffd6ec, #fff0f7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.page-2.active {
+  transform: rotateY(0deg);
+  opacity: 1;
+  z-index: 6;
+}
+
+/* ✨ Trang thứ 2 sau khi lật */
+.memory-page {
+  text-align: center;
+  max-width: 700px;
+  color: #fff;
+  text-shadow: 0 0 15px rgba(255, 120, 200, 0.6);
+}
+.memory-page h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.memory-page p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
