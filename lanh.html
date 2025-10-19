@@ -1,246 +1,673 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday – 19/10 – Vũ Lan Anh</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --pink-1:#ffe5f0; --pink-2:#ffd1e1; --pink-3:#ffb6c8; --pink-4:#ff8bad; --ink:#6a5871;
-      --overlay: rgba(255, 197, 219, .18);
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      height:100vh; overflow:hidden; color:var(--ink); font-family:Poppins,system-ui,sans-serif;
-      background:
-        radial-gradient(900px 480px at 10% 110%, #ffeaf4 0%, transparent 60%),
-        radial-gradient(1000px 520px at 90% -10%, #f6dfff 0%, transparent 60%),
-        linear-gradient(180deg, var(--pink-1) 0%, #fff0f6 60%, #fff6fb 100%);
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday – 19/10 – Vũ Lan Anh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --pink-1: #ffe5f0;
+            --pink-2: #ffd1e1;
+            --pink-3: #ffb6c8;
+            --pink-4: #ff8bad;
+            --ink: #6a5871;
+            --overlay: rgba(255, 197, 219, .18);
+        }
 
-    /* soft light sweep */
-    .glow{ position:fixed; inset:-20%; pointer-events:none; background:
-      radial-gradient(600px 300px at 20% 10%, rgba(255,255,255,.9), transparent 60%),
-      radial-gradient(700px 340px at 80% 20%, rgba(255,230,245,.9), transparent 60%);
-      filter:blur(28px); opacity:.6; animation:floatGlow 10s ease-in-out infinite alternate; }
-    @keyframes floatGlow{ from{ transform:translateY(-12px)} to{ transform:translateY(12px)} }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
 
-    /* Heading */
-    .heading{ position:absolute; top:36px; left:50%; transform:translateX(-50%); text-align:center; user-select:none; }
-    .heading .date{ font-weight:700; letter-spacing:.12em; font-size:13px; opacity:.8 }
-    .heading h1{ margin:.25rem 0 0; font-family:'Dancing Script',cursive; font-size:48px; color:#ff7ea6; position:relative; }
-    .heading h1:after{ content:""; position:absolute; left:-10%; top:50%; width:120%; height:42%; transform:translateY(-50%) skewX(-12deg);
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.9), transparent); filter: blur(8px); opacity:.0; animation: shine 6s ease-in-out 1.2s infinite; }
-    @keyframes shine{ 0%{opacity:0; transform:translate(-30%, -50%) skewX(-12deg)} 15%{opacity:.7} 30%{opacity:0; transform:translate(30%, -50%) skewX(-12deg)} 100%{opacity:0} }
-    .heading .hint{ font-size:13px; opacity:.8; margin-top:6px }
+        body {
+            height: 100vh;
+            overflow: hidden;
+            color: var(--ink);
+            font-family: Poppins, system-ui, sans-serif;
+            background:
+                radial-gradient(900px 480px at 10% 110%, #ffeaf4 0%, transparent 60%),
+                radial-gradient(1000px 520px at 90% -10%, #f6dfff 0%, transparent 60%),
+                linear-gradient(180deg, var(--pink-1) 0%, #fff0f6 60%, #fff6fb 100%);
+        }
 
-    /* Floating pink hearts background */
-    .hearts-bg{ position:fixed; inset:0; pointer-events:none; }
-    .hearts-bg span{
-      position:absolute; width:var(--s,16px); height:var(--s,16px); transform:rotate(-45deg);
-      background:#ff8dad; border-radius:2px; opacity:var(--o,.8); filter:drop-shadow(0 6px 10px rgba(0,0,0,.12));
-      left:var(--l,50%); top:calc(100% + 20px); animation:floatUp var(--t,7s) linear infinite; animation-delay:var(--d,0s);
-    }
-    .hearts-bg span:before,.hearts-bg span:after{ content:""; position:absolute; width:100%; height:100%; background:inherit; border-radius:50% }
-    .hearts-bg span:before{ top:-50%; left:0 }
-    .hearts-bg span:after{ left:50%; top:0 }
-    @keyframes floatUp{ 0%{ transform:translateY(0) rotate(-45deg) scale(.85)} 100%{ transform:translateY(-120vh) rotate(-45deg) scale(1.1); opacity:0 } }
+        /* soft light sweep */
+        .glow {
+            position: fixed;
+            inset: -20%;
+            pointer-events: none;
+            background:
+                radial-gradient(600px 300px at 20% 10%, rgba(255, 255, 255, .9), transparent 60%),
+                radial-gradient(700px 340px at 80% 20%, rgba(255, 230, 245, .9), transparent 60%);
+            filter: blur(28px);
+            opacity: .6;
+            animation: floatGlow 10s ease-in-out infinite alternate;
+        }
 
-    /* wandering pink gift */
-    .gift{ position:absolute; width:150px; height:128px; cursor:pointer; user-select:none; will-change:transform; }
-    .gift .lid{ position:absolute; left:0; right:0; top:0; height:50px; border-radius:14px; background:linear-gradient(180deg,#ffd3df 0%, #ffc1d2 100%); transform-origin:50% 100%; transition:transform .6s cubic-bezier(.2,.9,.2,1), filter .6s; box-shadow:0 8px 16px rgba(0,0,0,.12) }
-    .gift .box{ position:absolute; inset:auto 0 0 0; height:88px; border-radius:14px; background:linear-gradient(180deg,var(--pink-3) 0%, var(--pink-4) 100%); box-shadow:0 12px 22px rgba(255, 138, 173,.35) }
-    .gift .ribbon-vert,.gift .ribbon-hz{ position:absolute; background:#ff5f8f; opacity:.95; mix-blend-mode:multiply; }
-    .gift .ribbon-vert{ width:22px; height:100%; left:50%; transform:translateX(-50%); border-radius:12px }
-    .gift .ribbon-hz{ top:46px; left:0; right:0; height:16px; border-radius:10px }
-    .gift .bow{ position:absolute; top:-16px; left:50%; width:90px; height:30px; transform:translateX(-50%); display:flex; justify-content:space-between }
-    .gift .bow span{ width:30px; height:30px; background:#ff5f8f; border-radius:50% 50% 50% 0; transform:rotate(45deg) }
-    .gift:hover{ filter:brightness(1.02) saturate(1.04) }
-    .gift.open .lid{ transform: translateY(-70px) rotateX(25deg) rotate(-6deg); filter:drop-shadow(0 18px 26px rgba(0,0,0,.16)) }
+        @keyframes floatGlow {
+            from {
+                transform: translateY(-12px)
+            }
 
-    /* sparkles around gift */
-    .sparkles{ position:absolute; inset:0; pointer-events:none }
-    .sparkles i{ position:absolute; width:6px; height:6px; background:linear-gradient(180deg,#fff,#ffe2ef); border-radius:50%; opacity:0; animation: twinkle 2.2s ease-in-out infinite; box-shadow:0 0 12px rgba(255,255,255,.9) }
-    @keyframes twinkle{ 0%,100%{opacity:0; transform:scale(.6)} 40%{opacity:1; transform:scale(1)} }
+            to {
+                transform: translateY(12px)
+            }
+        }
 
-    /* Hearts pop (confetti) */
-    .confetti{ position:absolute; left:50%; top:6px; width:0; height:0; pointer-events:none }
-    .confetti span{ position:absolute; width:14px; height:14px; background:#ff7aa0; transform:rotate(-45deg); opacity:0; animation: riseHeart 2s ease-out forwards }
-    .confetti span:before,.confetti span:after{ content:""; position:absolute; width:100%; height:100%; background:inherit; border-radius:50% }
-    .confetti span:before{ top:-50%; left:0 }
-    .confetti span:after{ left:50%; top:0 }
-    @keyframes riseHeart{ 0%{opacity:0; transform:translate(-50%,8px) rotate(-45deg) scale(.5)} 20%{opacity:1} 100%{opacity:0; transform:translate(calc(-50% + var(--hx)), -160px) rotate(-45deg) scale(1.2)} }
+        /* Heading */
+        .heading {
+            position: absolute;
+            top: 36px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            user-select: none;
+        }
 
-    /* Modal letter */
-    .overlay{ position:fixed; inset:0; display:none; place-items:center; z-index:50; background:var(--overlay); backdrop-filter: blur(6px) saturate(1.1) }
-    .overlay.show{ display:grid; animation:fadeIn .35s ease }
-    @keyframes fadeIn{ from{opacity:0} to{opacity:1} }
-    .card{ position:relative; width:min(92vw,760px); background:#fff; border-radius:26px; padding:26px 28px 32px; box-shadow:0 20px 44px rgba(0,0,0,.28); overflow:hidden }
-    .card .shine{ position:absolute; inset:-18%; background:
-      radial-gradient(320px 190px at 15% 10%, rgba(255,240,248,.9), transparent 60%),
-      radial-gradient(320px 170px at 85% 20%, rgba(235,228,255,.9), transparent 60%);
-      filter:blur(18px); pointer-events:none; }
-    .card h2{ margin:0 0 6px; font-family:'Dancing Script',cursive; font-size:46px; color:#e6668a; text-align:center }
-    .card .meta{ text-align:center; font-weight:600; letter-spacing:.06em; font-size:12px; opacity:.7; margin-bottom:10px }
-    .card .content{ font-size:16.5px; line-height:1.8; white-space:pre-line; position:relative }
-    .card .content:after{ content:""; position:absolute; right:-22px; top:0; width:140px; height:100%; background: radial-gradient(120px 200px at 30% 10%, rgba(255,220,240,.65), transparent 60%) }
-    .card .sign{ margin-top:16px; font-weight:600; text-align:right; color:#ff7ea6 }
-    .card .close{ position:absolute; top:10px; right:14px; border:0; background:transparent; font-size:22px; cursor:pointer; color:#b28aa6 }
+        .heading .date {
+            font-weight: 700;
+            letter-spacing: .12em;
+            font-size: 13px;
+            opacity: .8
+        }
 
-    /* Music toggle */
-    .music{ position:fixed; right:14px; bottom:14px; display:flex; align-items:center; gap:8px; background:rgba(255,255,255,.75); border-radius:999px; padding:8px 12px; box-shadow:0 6px 16px rgba(0,0,0,.12); backdrop-filter: blur(6px) }
-    .music button{ border:0; background:#ff8dad; color:#fff; width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:16px }
-    .music .label{ font-size:12px; opacity:.8 }
+        .heading h1 {
+            margin: .25rem 0 0;
+            font-family: 'Dancing Script', cursive;
+            font-size: 48px;
+            color: #ff7ea6;
+            position: relative;
+        }
 
-    @media (max-width:640px){
-      .heading h1{ font-size:40px }
-      .gift{ width:130px; height:112px }
-      .gift .box{ height:80px }
-      .gift .lid{ height:46px }
-      .card h2{ font-size:40px }
-    }
-  </style>
+        .heading h1:after {
+            content: "";
+            position: absolute;
+            left: -10%;
+            top: 50%;
+            width: 120%;
+            height: 42%;
+            transform: translateY(-50%) skewX(-12deg);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .9), transparent);
+            filter: blur(8px);
+            opacity: .0;
+            animation: shine 6s ease-in-out 1.2s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                opacity: 0;
+                transform: translate(-30%, -50%) skewX(-12deg)
+            }
+
+            15% {
+                opacity: .7
+            }
+
+            30% {
+                opacity: 0;
+                transform: translate(30%, -50%) skewX(-12deg)
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        .heading .hint {
+            font-size: 13px;
+            opacity: .8;
+            margin-top: 6px
+        }
+
+        /* Floating pink hearts background */
+        .hearts-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .hearts-bg span {
+            position: absolute;
+            width: var(--s, 16px);
+            height: var(--s, 16px);
+            transform: rotate(-45deg);
+            background: #ff8dad;
+            border-radius: 2px;
+            opacity: var(--o, .8);
+            filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .12));
+            left: var(--l, 50%);
+            top: calc(100% + 20px);
+            animation: floatUp var(--t, 7s) linear infinite;
+            animation-delay: var(--d, 0s);
+        }
+
+        .hearts-bg span:before,
+        .hearts-bg span:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: 50%
+        }
+
+        .hearts-bg span:before {
+            top: -50%;
+            left: 0
+        }
+
+        .hearts-bg span:after {
+            left: 50%;
+            top: 0
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(-45deg) scale(.85)
+            }
+
+            100% {
+                transform: translateY(-120vh) rotate(-45deg) scale(1.1);
+                opacity: 0
+            }
+        }
+
+        /* wandering pink gift */
+        .gift {
+            position: absolute;
+            width: 150px;
+            height: 128px;
+            cursor: pointer;
+            user-select: none;
+            will-change: transform;
+        }
+
+        .gift .lid {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 50px;
+            border-radius: 14px;
+            background: linear-gradient(180deg, #ffd3df 0%, #ffc1d2 100%);
+            transform-origin: 50% 100%;
+            transition: transform .6s cubic-bezier(.2, .9, .2, 1), filter .6s;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, .12)
+        }
+
+        .gift .box {
+            position: absolute;
+            inset: auto 0 0 0;
+            height: 88px;
+            border-radius: 14px;
+            background: linear-gradient(180deg, var(--pink-3) 0%, var(--pink-4) 100%);
+            box-shadow: 0 12px 22px rgba(255, 138, 173, .35)
+        }
+
+        .gift .ribbon-vert,
+        .gift .ribbon-hz {
+            position: absolute;
+            background: #ff5f8f;
+            opacity: .95;
+            mix-blend-mode: multiply;
+        }
+
+        .gift .ribbon-vert {
+            width: 22px;
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 12px
+        }
+
+        .gift .ribbon-hz {
+            top: 46px;
+            left: 0;
+            right: 0;
+            height: 16px;
+            border-radius: 10px
+        }
+
+        .gift .bow {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            width: 90px;
+            height: 30px;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between
+        }
+
+        .gift .bow span {
+            width: 30px;
+            height: 30px;
+            background: #ff5f8f;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(45deg)
+        }
+
+        .gift:hover {
+            filter: brightness(1.02) saturate(1.04)
+        }
+
+        .gift.open .lid {
+            transform: translateY(-70px) rotateX(25deg) rotate(-6deg);
+            filter: drop-shadow(0 18px 26px rgba(0, 0, 0, .16))
+        }
+
+        /* sparkles around gift */
+        .sparkles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none
+        }
+
+        .sparkles i {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(180deg, #fff, #ffe2ef);
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 2.2s ease-in-out infinite;
+            box-shadow: 0 0 12px rgba(255, 255, 255, .9)
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(.6)
+            }
+
+            40% {
+                opacity: 1;
+                transform: scale(1)
+            }
+        }
+
+        /* Hearts pop (confetti) */
+        .confetti {
+            position: absolute;
+            left: 50%;
+            top: 6px;
+            width: 0;
+            height: 0;
+            pointer-events: none
+        }
+
+        .confetti span {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background: #ff7aa0;
+            transform: rotate(-45deg);
+            opacity: 0;
+            animation: riseHeart 2s ease-out forwards
+        }
+
+        .confetti span:before,
+        .confetti span:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: 50%
+        }
+
+        .confetti span:before {
+            top: -50%;
+            left: 0
+        }
+
+        .confetti span:after {
+            left: 50%;
+            top: 0
+        }
+
+        @keyframes riseHeart {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, 8px) rotate(-45deg) scale(.5)
+            }
+
+            20% {
+                opacity: 1
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(calc(-50% + var(--hx)), -160px) rotate(-45deg) scale(1.2)
+            }
+        }
+
+        /* Modal letter */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            display: none;
+            place-items: center;
+            z-index: 50;
+            background: var(--overlay);
+            backdrop-filter: blur(6px) saturate(1.1)
+        }
+
+        .overlay.show {
+            display: grid;
+            animation: fadeIn .35s ease
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .card {
+            position: relative;
+            width: min(92vw, 760px);
+            background: #fff;
+            border-radius: 26px;
+            padding: 26px 28px 32px;
+            box-shadow: 0 20px 44px rgba(0, 0, 0, .28);
+            overflow: hidden
+        }
+
+        .card .shine {
+            position: absolute;
+            inset: -18%;
+            background:
+                radial-gradient(320px 190px at 15% 10%, rgba(255, 240, 248, .9), transparent 60%),
+                radial-gradient(320px 170px at 85% 20%, rgba(235, 228, 255, .9), transparent 60%);
+            filter: blur(18px);
+            pointer-events: none;
+        }
+
+        .card h2 {
+            margin: 0 0 6px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 46px;
+            color: #e6668a;
+            text-align: center
+        }
+
+        .card .meta {
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: .06em;
+            font-size: 12px;
+            opacity: .7;
+            margin-bottom: 10px
+        }
+
+        .card .content {
+            font-size: 16.5px;
+            line-height: 1.8;
+            white-space: pre-line;
+            position: relative;
+            max-height: 60vh;
+            /* Giới hạn chiều cao khung thư */
+            overflow-y: scroll;
+            /* Luôn hiển thị thanh cuộn dọc */
+            overflow-x: hidden;
+            /* Ẩn thanh cuộn ngang */
+            padding-right: 12px;
+            /* Chừa khoảng cho scrollbar */
+            scroll-behavior: smooth;
+        }
+
+        .card .content:after {
+            content: "";
+            position: absolute;
+            right: -22px;
+            top: 0;
+            width: 140px;
+            height: 100%;
+            background: radial-gradient(120px 200px at 30% 10%, rgba(255, 220, 240, .65), transparent 60%)
+        }
+
+        .card .sign {
+            margin-top: 16px;
+            font-weight: 600;
+            text-align: right;
+            color: #ff7ea6
+        }
+
+        .card .close {
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            border: 0;
+            background: transparent;
+            font-size: 22px;
+            cursor: pointer;
+            color: #b28aa6
+        }
+
+        /* Music toggle */
+        .music {
+            position: fixed;
+            right: 14px;
+            bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, .75);
+            border-radius: 999px;
+            padding: 8px 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, .12);
+            backdrop-filter: blur(6px)
+        }
+
+        .music button {
+            border: 0;
+            background: #ff8dad;
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px
+        }
+
+        .music .label {
+            font-size: 12px;
+            opacity: .8
+        }
+
+        @media (max-width:640px) {
+            .heading h1 {
+                font-size: 40px
+            }
+
+            .gift {
+                width: 130px;
+                height: 112px
+            }
+
+            .gift .box {
+                height: 80px
+            }
+
+            .gift .lid {
+                height: 46px
+            }
+
+            .card h2 {
+                font-size: 40px
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <div class="glow" aria-hidden="true"></div>
-  <div class="heading">
-    <div class="date">19 / 10</div>
-    <h1>Happy Birthday, Vợ Yêu! 🎂</h1>
-  </div>
-
-  <!-- floating hearts background -->
-  <div class="hearts-bg" id="hearts"></div>
-
-  <!-- wandering pink gift -->
-  <div class="gift" id="gift" aria-label="Hộp quà màu hồng">
-    <div class="lid"></div>
-    <div class="box"></div>
-    <div class="ribbon-vert"></div>
-    <div class="ribbon-hz"></div>
-    <div class="bow"><span></span><span></span></div>
-    <div class="confetti"></div>
-    <div class="sparkles" id="sparkles"></div>
-  </div>
-
-  <!-- modal letter -->
-  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Thiệp chúc mừng">
-    <div class="card">
-      <button class="close" id="closeBtn" aria-label="Đóng">✕</button>
-      <div class="shine"></div>
-      <h2>Gửi Vợ Yêu 🤍</h2>
-      <div class="meta">Happy Birthday • 19/10</div>
-      <div class="content" id="letter"></div>
-      <div class="sign">— From Anh ❤️</div>
+    <div class="glow" aria-hidden="true"></div>
+    <div class="heading">
+        <div class="date">19 / 10</div>
+        <h1>Happy Birthday, Em Yêu! 🎂</h1>
     </div>
-  </div>
 
-  <!-- music control -->
-  <div class="music" id="musicCtl">
-    <button id="musicBtn" aria-label="Phát / Tạm dừng">▶</button>
-    <div class="label">Nhạc nền</div>
-  </div>
-  <audio id="bgm" preload="auto" loop src="/videos/fallinlove.mp3"></audio>
-  <!-- Bạn có thể thay src phía trên bằng file mp3 của bạn → ví dụ: ./romantic-piano.mp3 -->
+    <!-- floating hearts background -->
+    <div class="hearts-bg" id="hearts"></div>
 
-  <script>
-    const $ = (s, r=document)=>r.querySelector(s);
-    const $$ = (s, r=document)=>Array.from(r.querySelectorAll(s));
+    <!-- wandering pink gift -->
+    <div class="gift" id="gift" aria-label="Hộp quà màu hồng">
+        <div class="lid"></div>
+        <div class="box"></div>
+        <div class="ribbon-vert"></div>
+        <div class="ribbon-hz"></div>
+        <div class="bow"><span></span><span></span></div>
+        <div class="confetti"></div>
+        <div class="sparkles" id="sparkles"></div>
+    </div>
 
-    // build hearts background with varied sizes/speeds
-    (function buildHearts(){
-      const c = $('#hearts');
-      const N = 42;
-      for(let i=0;i<N;i++){
-        const h = document.createElement('span');
-        h.style.setProperty('--l', (Math.random()*100)+'%');
-        h.style.setProperty('--s', (10+Math.random()*18)+'px');
-        h.style.setProperty('--t', (6+Math.random()*8)+'s');
-        h.style.setProperty('--d', (Math.random()*6)+'s');
-        h.style.setProperty('--o', (0.55+Math.random()*0.45));
-        c.appendChild(h);
-      }
-    })();
+    <!-- modal letter -->
+    <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Thiệp chúc mừng">
+        <div class="card">
+            <button class="close" id="closeBtn" aria-label="Đóng">✕</button>
+            <div class="shine"></div>
+            <h2>Gửi Em Yêu 🤍</h2>
+            <div class="meta">Happy Birthday • 19/10</div>
+            <div class="content" id="letter"></div>
+            <div class="sign">— From Anh ❤️</div>
+        </div>
+    </div>
 
-    // wandering gift logic (random targets, smooth tween)
-    const gift = $('#gift');
-    let vw = innerWidth, vh = innerHeight;
-    let pos = { x: vw*0.5 - 75, y: vh*0.55 - 64 };
-    function randomTarget(){
-      const margin = 40; // keep inside viewport
-      const x = Math.random()*(vw-150-margin*2)+margin;
-      const y = Math.random()*(vh-160-margin*2)+margin+60; // avoid header
-      return {x,y};
-    }
-    function moveGift(){
-      const t = randomTarget();
-      const dx = t.x - pos.x, dy = t.y - pos.y;
-      const dist = Math.hypot(dx,dy);
-      const dur = Math.min(2200 + dist*2.2, 5200); // ms
-      gift.animate([
-        { transform: `translate(${pos.x}px, ${pos.y}px) rotate(0deg)` },
-        { transform: `translate(${t.x}px, ${t.y}px) rotate(${(Math.random()*6-3).toFixed(2)}deg)` }
-      ], { duration: dur, easing: 'ease-in-out', fill:'forwards' }).onfinish = ()=>{ pos = t; setTimeout(moveGift, 400+Math.random()*600); };
-    }
-    // start after small delay
-    setTimeout(moveGift, 600);
-    addEventListener('resize', ()=>{ vw = innerWidth; vh = innerHeight; });
+    <!-- music control -->
+    <div class="music" id="musicCtl">
+        <button id="musicBtn" aria-label="Phát / Tạm dừng">▶</button>
+        <div class="label">Nhạc nền</div>
+    </div>
+    <audio id="bgm" preload="auto" loop src="/videos/fallinlove.mp3"></audio>
+    <!-- Bạn có thể thay src phía trên bằng file mp3 của bạn → ví dụ: ./romantic-piano.mp3 -->
 
-    // sparkles around gift
-    (function buildSparkles(){
-      const s = $('#sparkles');
-      for(let i=0;i<18;i++){
-        const p = document.createElement('i');
-        p.style.left = (Math.random()*100)+'%';
-        p.style.top = (Math.random()*100)+'%';
-        p.style.animationDelay = (Math.random()*2)+'s';
-        s.appendChild(p);
-      }
-    })();
+    <script>
+        const $ = (s, r = document) => r.querySelector(s);
+        const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 
-    // Confetti hearts burst
-    function burstHearts(container, count=26){
-      const ctn = $('.confetti', container); ctn.innerHTML='';
-      for(let i=0;i<count;i++){
-        const s = document.createElement('span');
-        s.style.setProperty('--hx', (Math.random()*160-80)+'px');
-        s.style.left = (Math.random()*24-12)+'px';
-        s.style.animationDelay = (Math.random()*0.35)+'s';
-        ctn.appendChild(s);
-      }
-    }
+        // build hearts background with varied sizes/speeds
+        (function buildHearts() {
+            const c = $('#hearts');
+            const N = 42;
+            for (let i = 0; i < N; i++) {
+                const h = document.createElement('span');
+                h.style.setProperty('--l', (Math.random() * 100) + '%');
+                h.style.setProperty('--s', (10 + Math.random() * 18) + 'px');
+                h.style.setProperty('--t', (6 + Math.random() * 8) + 's');
+                h.style.setProperty('--d', (Math.random() * 6) + 's');
+                h.style.setProperty('--o', (0.55 + Math.random() * 0.45));
+                c.appendChild(h);
+            }
+        })();
 
-    // Typewriter message
-    const message = `Chúc mừng sinh nhật em 🎂🤍\n\nTuổi mới đến rồi, anh chúc em thật nhiều niềm vui, thật nhiều bình an và hạnh phúc.\nMong em luôn giữ được nụ cười tươi, trái tim ấm, và niềm tin vào những điều tốt đẹp quanh mình.\n\nAnh biết sinh nhật năm nay mình không ở cạnh nhau, nhưng khoảng cách không làm lời chúc của anh bớt ý nghĩa đâu.\nAnh chỉ mong ngày hôm nay em thật vui, được yêu thương thật nhiều, và cảm nhận rõ rằng có một người ở xa vẫn đang nghĩ về em – nhẹ nhàng mà chân thành.\n\nChúc em tuổi mới luôn gặp may mắn, làm điều mình thích, sống an nhiên và rạng rỡ hơn cả năm cũ.\nDù xa nhau, anh vẫn luôn mong điều tốt đẹp nhất sẽ đến với em – từng ngày, từng tháng, từng tuổi mới.\n\nChúc mừng sinh nhật cô gái của anh – chúc cho em luôn hạnh phúc, dù ở bất cứ nơi đâu. 💛`;
+        // wandering gift logic (random targets, smooth tween)
+        const gift = $('#gift');
+        let vw = innerWidth, vh = innerHeight;
+        let pos = { x: vw * 0.5 - 75, y: vh * 0.55 - 64 };
+        function randomTarget() {
+            const margin = 40; // keep inside viewport
+            const x = Math.random() * (vw - 150 - margin * 2) + margin;
+            const y = Math.random() * (vh - 160 - margin * 2) + margin + 60; // avoid header
+            return { x, y };
+        }
+        function moveGift() {
+            const t = randomTarget();
+            const dx = t.x - pos.x, dy = t.y - pos.y;
+            const dist = Math.hypot(dx, dy);
+            const dur = Math.min(2200 + dist * 2.2, 5200); // ms
+            gift.animate([
+                { transform: `translate(${pos.x}px, ${pos.y}px) rotate(0deg)` },
+                { transform: `translate(${t.x}px, ${t.y}px) rotate(${(Math.random() * 6 - 3).toFixed(2)}deg)` }
+            ], { duration: dur, easing: 'ease-in-out', fill: 'forwards' }).onfinish = () => { pos = t; setTimeout(moveGift, 400 + Math.random() * 600); };
+        }
+        // start after small delay
+        setTimeout(moveGift, 600);
+        addEventListener('resize', () => { vw = innerWidth; vh = innerHeight; });
 
-    function typeWriter(el, text, speed=16){
-      el.textContent=''; let i=0;
-      (function write(){ el.textContent = text.slice(0, i++); if(i<=text.length){ requestAnimationFrame(()=> setTimeout(write, speed)); } })();
-    }
+        // sparkles around gift
+        (function buildSparkles() {
+            const s = $('#sparkles');
+            for (let i = 0; i < 18; i++) {
+                const p = document.createElement('i');
+                p.style.left = (Math.random() * 100) + '%';
+                p.style.top = (Math.random() * 100) + '%';
+                p.style.animationDelay = (Math.random() * 2) + 's';
+                s.appendChild(p);
+            }
+        })();
 
-    // Modal & interactions
-    const overlay = $('#overlay');
-    const closeBtn = $('#closeBtn');
-    gift.addEventListener('click', ()=>{
-      if(gift.classList.contains('open')) return;
-      gift.classList.add('open');
-      burstHearts(gift, 30);
-      setTimeout(()=>{ overlay.classList.add('show'); typeWriter($('#letter'), message, 14); }, 700);
-      // play music on first open
-      playMusic();
-    });
-    function closeModal(){ overlay.classList.remove('show'); }
-    overlay.addEventListener('click', e=>{ if(e.target===overlay) closeModal(); });
-    closeBtn.addEventListener('click', closeModal);
+        // Confetti hearts burst
+        function burstHearts(container, count = 26) {
+            const ctn = $('.confetti', container); ctn.innerHTML = '';
+            for (let i = 0; i < count; i++) {
+                const s = document.createElement('span');
+                s.style.setProperty('--hx', (Math.random() * 160 - 80) + 'px');
+                s.style.left = (Math.random() * 24 - 12) + 'px';
+                s.style.animationDelay = (Math.random() * 0.35) + 's';
+                ctn.appendChild(s);
+            }
+        }
 
-    // Music control
-    const bgm = $('#bgm');
-    const musicBtn = $('#musicBtn');
-    function playMusic(){ bgm.volume = 0.35; bgm.play().catch(()=>{}); musicBtn.textContent='⏸'; }
-    function toggleMusic(){ if(bgm.paused){ playMusic(); } else { bgm.pause(); musicBtn.textContent='▶'; } }
-    musicBtn.addEventListener('click', toggleMusic);
-  </script>
+        // Typewriter message
+        const message = `Chúc mừng sinh nhật em 🎂🤍
+Tuổi mới đến rồi, anh chúc em thật nhiều niềm vui, bình an và hạnh phúc.
+Mong em luôn dịu dàng, nhiều tiếng cười và giữ trong tim niềm tin vào những điều tốt đẹp.
+
+Anh biết sinh nhật năm nay mình không ở cạnh nhau, nhưng chỉ mong hôm nay em thật vui, được yêu thương thật nhiều, và cảm nhận rõ rằng có một người vẫn luôn nghĩ về em, nhẹ nhàng mà chân thành.
+
+Gần 3 tháng yêu nhau, từng khoảnh khắc bên em đều đặc biệt. Em mang đến cho anh cảm giác vừa quen thuộc vừa mới mẻ, khiến anh chỉ muốn giữ mãi.
+Mới đây thôi, em còn ra đây chơi với anh, vậy mà chuyến đi vẫn chưa trọn vẹn. Anh chưa kịp đưa em đi được nhiều nơi, anh xin lỗi nhé. Nhiều lúc anh vô tâm, chưa nghĩ đến cảm xúc của em.
+Hôm chở em ra bến trong cơn mưa, như mưa hiểu được lòng người. Anh không nỡ để em quay về, nhưng vẫn lo cho việc học của em còn dang dở.
+Từ khi em đi, anh cứ thấy thiếu vắng điều gì đó thiếu một người bên cạnh, thiếu những ánh mắt, nụ cười khiến anh thấy bình yên và hạnh phúc.
+
+Cảm ơn em vì đã đến bên anh, vì đã cho anh được gọi em là “người yêu”, và vì đã khiến cuộc sống này trở nên nhẹ nhàng, đáng yêu hơn.
+
+Chúc mừng sinh nhật cô gái của anh 💛
+Chúc em tuổi mới thật rạng rỡ, nhiều niềm vui và thật nhiều yêu thương.
+Và chúc cho chúng ta dù gần hay xa vẫn luôn giữ được tình cảm trong trẻo, ấm áp như thuở ban đầu.
+
+Anh thương em.`;
+
+        function typeWriter(el, text, speed = 16) {
+            el.textContent = ''; let i = 0;
+            (function write() { el.textContent = text.slice(0, i++); if (i <= text.length) { requestAnimationFrame(() => setTimeout(write, speed)); } })();
+        }
+
+        // Modal & interactions
+        const overlay = $('#overlay');
+        const closeBtn = $('#closeBtn');
+        gift.addEventListener('click', () => {
+            if (gift.classList.contains('open')) return;
+            gift.classList.add('open');
+            burstHearts(gift, 30);
+            setTimeout(() => { overlay.classList.add('show'); typeWriter($('#letter'), message, 14); }, 700);
+            // play music on first open
+            playMusic();
+        });
+        function closeModal() { overlay.classList.remove('show'); }
+        overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+        closeBtn.addEventListener('click', closeModal);
+
+        // Music control
+        const bgm = $('#bgm');
+        const musicBtn = $('#musicBtn');
+        function playMusic() { bgm.volume = 0.35; bgm.play().catch(() => { }); musicBtn.textContent = '⏸'; }
+        function toggleMusic() { if (bgm.paused) { playMusic(); } else { bgm.pause(); musicBtn.textContent = '▶'; } }
+        musicBtn.addEventListener('click', toggleMusic);
+    </script>
 </body>
+
 </html>
