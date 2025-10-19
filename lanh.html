@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday – 19/10 – Vũ Lan Anh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root{
+      --bg: #fff7fb;
+      --pink: #ffb6c8;
+      --pink-dark: #ff98b2;
+      --lilac: #cbb7ff;
+      --lilac-dark:#b399ff;
+      --lemon: #ffe08a;
+      --lemon-dark:#ffd55a;
+      --ink:#6a5871;
+      --overlay: rgba(0,0,0,.55);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background: radial-gradient(1200px 600px at 70% -10%, #ffe7f1 0%, transparent 60%),
+                                      radial-gradient(900px 500px at 10% 110%, #e9e1ff 0%, transparent 60%),
+                                      var(--bg);
+      font-family:Poppins, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji','Segoe UI Emoji';
+      color:var(--ink);
+      overflow-x:hidden;
+    }
+    /* Header title */
+    .title{
+      text-align:center; margin-top:28px; user-select:none;
+      animation: fadeIn 1s ease both;
+    }
+    .title .date{font-weight:700; letter-spacing:.1em; font-size:14px; opacity:.8}
+    .title h1{
+      margin:.25rem 0 0; font-family:'Dancing Script', cursive; font-size:52px; line-height:1.1;
+      color:#e6668a; text-shadow:0 2px 0 #fff;
+    }
+    .sub{font-size:14px; opacity:.8}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+    /* Balloons (decor) */
+    .balloons{position:fixed; inset:0; pointer-events:none;}
+    .balloon{position:absolute; width:22px; height:28px; border-radius:50% 50% 48% 52% / 58% 58% 42% 42%; opacity:.6; filter:drop-shadow(0 6px 10px rgba(0,0,0,.12)); animation: float 8.5s ease-in-out infinite;}
+    .balloon:after{content:""; position:absolute; left:50%; top:100%; width:1px; height:30px; background:#b9a7c1;}
+    @keyframes float{0%{transform:translateY(20px)}50%{transform:translateY(-20px)}100%{transform:translateY(20px)}}
+
+    /* Gift stage */
+    .stage{display:flex; align-items:center; justify-content:center; gap:36px; min-height:62vh; padding:24px}
+    .gift{ position:relative; width:140px; height:120px; cursor:pointer; user-select:none;}
+    .gift .box{ position:absolute; inset:auto 0 0 0; height:82px; border-radius:12px; box-shadow:0 10px 18px rgba(0,0,0,.12), inset 0 -4px 0 rgba(255,255,255,.6);}
+    .gift .lid{ position:absolute; left:0; right:0; top:0; height:46px; border-radius:12px; transform-origin:50% 100%; transition: transform .55s cubic-bezier(.2,.9,.2,1), box-shadow .55s; box-shadow:0 8px 16px rgba(0,0,0,.12);}
+    .gift .ribbon-vert{ position:absolute; left:50%; transform:translateX(-50%); width:20px; height:100%; border-radius:10px; mix-blend-mode:multiply; opacity:.9}
+    .gift .ribbon-hz{ position:absolute; top:44px; left:0; right:0; height:16px; border-radius:8px; mix-blend-mode:multiply; opacity:.9}
+    .gift .bow{ position:absolute; top:-14px; left:50%; width:80px; height:28px; transform:translateX(-50%); display:flex; justify-content:space-between;}
+    .gift .bow span{ width:28px; height:28px; border-radius:50% 50% 50% 0; transform:rotate(45deg);}    
+
+    /* Gift color themes */
+    .gift.pink .box{ background:linear-gradient(180deg, var(--pink) 0%, var(--pink-dark) 100%);}
+    .gift.pink .lid{ background:linear-gradient(180deg, #ffd3df 0%, #ffc1d2 100%);} 
+    .gift.pink .ribbon-vert, .gift.pink .ribbon-hz, .gift.pink .bow span{ background:#ff7aa0;}
+
+    .gift.lilac .box{ background:linear-gradient(180deg, var(--lilac) 0%, var(--lilac-dark) 100%);}  
+    .gift.lilac .lid{ background:linear-gradient(180deg, #e4dbff 0%, #d6c8ff 100%);} 
+    .gift.lilac .ribbon-vert, .gift.lilac .ribbon-hz, .gift.lilac .bow span{ background:#8d77ff;}
+
+    .gift.lemon .box{ background:linear-gradient(180deg, var(--lemon) 0%, var(--lemon-dark) 100%);} 
+    .gift.lemon .lid{ background:linear-gradient(180deg, #fff0b3 0%, #ffe48a 100%);} 
+    .gift.lemon .ribbon-vert, .gift.lemon .ribbon-hz, .gift.lemon .bow span{ background:#ffb400;}
+
+    /* Hover wiggle */
+    .gift:hover{ transform:translateY(-2px) scale(1.02); transition:.25s}
+
+    /* Opened state */
+    .gift.open .lid{ transform: translateY(-64px) rotateX(25deg) rotate(-6deg); box-shadow:0 18px 26px rgba(0,0,0,.16)}
+
+    /* Confetti */
+    .confetti{ position:absolute; left:50%; top:10px; width:0; height:0; pointer-events:none; }
+    .confetti span{ position:absolute; width:10px; height:16px; opacity:0; border-radius:2px; animation: fall linear forwards;}
+    @keyframes fall{ 0%{opacity:0; transform:translate(-50%,-40px) rotate(0)} 10%{opacity:1} 100%{opacity:1; transform:translate(var(--tx), var(--ty)) rotate(var(--rot))}}
+
+    /* Hearts pop */
+    .hearts{ position:absolute; left:50%; bottom:70px; width:0; height:0; pointer-events:none; }
+    .heart{ position:absolute; width:16px; height:16px; background:#ff7aa0; transform:translate(-50%,0) rotate(-45deg); opacity:0; animation: rise 1.4s ease-out forwards;}
+    .heart:before,.heart:after{ content:""; position:absolute; width:16px; height:16px; background:inherit; border-radius:50%}
+    .heart:before{ top:-8px; left:0}
+    .heart:after{ left:8px; top:0}
+    @keyframes rise{ 0%{opacity:0; transform:translate(-50%,10px) rotate(-45deg) scale(.5)} 20%{opacity:1} 100%{opacity:0; transform:translate(calc(-50% + var(--hx)), -120px) rotate(-45deg) scale(1)} }
+
+    /* Modal letter */
+    .overlay{ position:fixed; inset:0; background:var(--overlay); display:none; place-items:center; z-index:50; }
+    .overlay.show{ display:grid }
+    .card{ position:relative; width:min(92vw, 760px); background:#fff; border-radius:24px; padding:24px 24px 28px; box-shadow:0 18px 40px rgba(0,0,0,.28); overflow:hidden; }
+    .card .shine{ position:absolute; inset:-20%; background: radial-gradient(300px 180px at 20% 10%, rgba(255,240,248,.9), transparent 60%), radial-gradient(300px 160px at 90% 20%, rgba(235,228,255,.9), transparent 60%); filter:blur(20px); pointer-events:none }
+    .card h2{ margin:0 0 6px; font-family:'Dancing Script', cursive; font-size:42px; color:#e6668a; text-align:center;}
+    .card .meta{ text-align:center; font-weight:600; letter-spacing:.06em; font-size:12px; opacity:.7; margin-bottom:8px}
+    .card .content{ font-size:16px; line-height:1.7; white-space:pre-line; }
+    .card .close{ position:absolute; top:10px; right:12px; border:0; background:transparent; font-size:22px; cursor:pointer; color:#b28aa6 }
+
+    .cta{ text-align:center; margin:10px 0 24px; font-size:14px; opacity:.8 }
+
+    /* Footer note */
+    .footer-note{ text-align:center; font-size:12px; opacity:.6; margin:8px 0 24px}
+
+    /* Responsive */
+    @media (max-width:640px){
+      .title h1{ font-size:38px }
+      .stage{ gap:18px; min-height:56vh }
+      .gift{ width:120px; height:102px }
+      .gift .box{ height:74px }
+      .gift .lid{ height:40px }
+      .gift.open .lid{ transform: translateY(-54px) rotateX(25deg) rotate(-6deg) }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="title">
+    <div class="date">19 / 10</div>
+    <h1>Happy Birthday, Vũ Lan Anh! 🎂</h1>
+    <div class="sub">Nhấn vào hộp quà ở giữa để mở thư 🎁</div>
+  </div>
+
+  <!-- Floating balloons -->
+  <div class="balloons" aria-hidden="true" id="balloons"></div>
+
+  <!-- Gifts stage -->
+  <section class="stage">
+    <!-- Left small gift -->
+    <div class="gift lilac" data-small>
+      <div class="lid"></div>
+      <div class="box"></div>
+      <div class="ribbon-vert"></div>
+      <div class="ribbon-hz"></div>
+      <div class="bow"><span></span><span></span></div>
+      <div class="confetti"></div>
+      <div class="hearts"></div>
+    </div>
+
+    <!-- Main gift (click to open) -->
+    <div class="gift pink" id="mainGift" aria-label="Hộp quà chính">
+      <div class="lid"></div>
+      <div class="box"></div>
+      <div class="ribbon-vert"></div>
+      <div class="ribbon-hz"></div>
+      <div class="bow"><span></span><span></span></div>
+      <div class="confetti"></div>
+      <div class="hearts"></div>
+    </div>
+
+    <!-- Right small gift -->
+    <div class="gift lemon" data-small>
+      <div class="lid"></div>
+      <div class="box"></div>
+      <div class="ribbon-vert"></div>
+      <div class="ribbon-hz"></div>
+      <div class="bow"><span></span><span></span></div>
+      <div class="confetti"></div>
+      <div class="hearts"></div>
+    </div>
+  </section>
+
+  <div class="cta">(Click hộp quà ở giữa nhé ✨)</div>
+
+  <div class="footer-note">Made with 💛 for a cute birthday surprise</div>
+
+  <!-- Modal Letter -->
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Thiệp chúc mừng">
+    <div class="card">
+      <button class="close" id="closeBtn" aria-label="Đóng"><i class="fa-solid fa-xmark"></i></button>
+      <div class="shine"></div>
+      <h2>Gửi Vũ Lan Anh 🤍</h2>
+      <div class="meta">Happy Birthday • 19/10</div>
+      <div class="content" id="letter"></div>
+    </div>
+  </div>
+
+  <script>
+    // --------- Simple helpers ---------
+    const $ = (sel, root=document) => root.querySelector(sel);
+    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+    // Balloons spawn
+    (function spawnBalloons(){
+      const colors = ['#ffd1dc','#d9ceff','#ffe5a1','#c3f0ff','#ffd1a7'];
+      const area = $('#balloons');
+      for(let i=0;i<26;i++){
+        const b = document.createElement('div');
+        b.className='balloon';
+        b.style.background=colors[i%colors.length];
+        b.style.left = Math.random()*100+'%';
+        b.style.top = (10+Math.random()*80)+'%';
+        b.style.animationDelay = (Math.random()*6)+'s';
+        b.style.animationDuration = (7+Math.random()*4)+'s';
+        b.style.transform = `translateY(${Math.random()*20-10}px)`;
+        area.appendChild(b);
+      }
+    })();
+
+    // Prepare gifts visuals (add inner elements if needed)
+    $$('.gift').forEach(g=>{
+      // visual sizes of ribbons already in HTML
+    });
+
+    // Confetti generator
+    function burstConfetti(container, count=60){
+      const ctn = $('.confetti', container);
+      ctn.innerHTML = '';
+      const colors = ['#ff7aa0','#8d77ff','#ffd166','#6ed0ff','#95e1d3'];
+      for(let i=0;i<count;i++){
+        const s = document.createElement('span');
+        const dx = (Math.random()*400-200) + 'px';
+        const dy = (120 + Math.random()*260) + 'px';
+        const rot = (Math.random()*540-270) + 'deg';
+        s.style.setProperty('--tx', dx);
+        s.style.setProperty('--ty', dy);
+        s.style.setProperty('--rot', rot);
+        s.style.left = (Math.random()*12-6)+'px';
+        s.style.background = colors[i%colors.length];
+        s.style.animationDuration = (1 + Math.random()*1.2) + 's';
+        s.style.animationDelay = (Math.random()*0.35) + 's';
+        ctn.appendChild(s);
+      }
+    }
+
+    // Hearts pop
+    function popHearts(container, count=12){
+      const wrap = $('.hearts', container);
+      wrap.innerHTML = '';
+      for(let i=0;i<count;i++){
+        const h = document.createElement('div');
+        h.className='heart';
+        h.style.setProperty('--hx', (Math.random()*100-50)+'px');
+        h.style.left = (Math.random()*40-20)+'px';
+        h.style.animationDelay = (i*0.05)+'s';
+        wrap.appendChild(h);
+      }
+    }
+
+    // Typewriter effect for the letter
+    const message = `Chúc mừng sinh nhật em 🎂🤍\n\nTuổi mới đến rồi, anh chúc em thật nhiều niềm vui, thật nhiều bình an và hạnh phúc.\nMong em luôn giữ được nụ cười tươi, trái tim ấm, và niềm tin vào những điều tốt đẹp quanh mình.\n\nAnh biết sinh nhật năm nay mình không ở cạnh nhau, nhưng khoảng cách không làm lời chúc của anh bớt ý nghĩa đâu.\nAnh chỉ mong ngày hôm nay em thật vui, được yêu thương thật nhiều, và cảm nhận rõ rằng có một người ở xa vẫn đang nghĩ về em – nhẹ nhàng mà chân thành.\n\nChúc em tuổi mới luôn gặp may mắn, làm điều mình thích, sống an nhiên và rạng rỡ hơn cả năm cũ.\nDù xa nhau, anh vẫn luôn mong điều tốt đẹp nhất sẽ đến với em – từng ngày, từng tháng, từng tuổi mới.\n\nChúc mừng sinh nhật cô gái của anh – chúc cho em luôn hạnh phúc, dù ở bất cứ nơi đâu. 💛`;
+
+    function typeWriter(el, text, speed=18){
+      el.textContent = '';
+      let i = 0;
+      (function write(){
+        el.textContent = text.slice(0, i++);
+        if(i <= text.length){ requestAnimationFrame(()=> setTimeout(write, speed)); }
+      })();
+    }
+
+    // Main interactions
+    const mainGift = $('#mainGift');
+    const overlay = $('#overlay');
+    const closeBtn = $('#closeBtn');
+
+    // Visual assembly of gifts (DOM already made). Add sizes for ribbons & bow positions
+    $$('.gift').forEach(g=>{
+      const lid = $('.lid', g); const box = $('.box', g);
+      const rv = $('.ribbon-vert', g); const rh = $('.ribbon-hz', g);
+      const bow = $('.bow', g); const spans = $$('span', bow);
+      rv.style.height = (g.clientHeight)+'px';
+      rh.style.width = '100%';
+      spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+      spans[1].style.transform = 'rotate(45deg) translate(-6px, 6px) scaleX(-1)';
+    });
+
+    // Click only on main gift to open
+    mainGift.addEventListener('click', ()=>{
+      if(mainGift.classList.contains('open')) return; // prevent double
+      mainGift.classList.add('open');
+      burstConfetti(mainGift, 90);
+      popHearts(mainGift, 14);
+      // Show modal after a tiny delay so lid can move
+      setTimeout(()=>{
+        overlay.classList.add('show');
+        typeWriter($('#letter'), message, 14);
+      }, 650);
+    });
+
+    // Close modal
+    function closeModal(){ overlay.classList.remove('show'); }
+    overlay.addEventListener('click', (e)=>{ if(e.target===overlay) closeModal(); });
+    closeBtn.addEventListener('click', closeModal);
+
+    // Decorative: tiny jiggle on small side gifts when main opens
+    function jiggleSmall(){
+      $$('[data-small]').forEach((g,i)=>{
+        g.animate([
+          { transform:'translateY(0) rotate(0)' },
+          { transform:`translateY(-6px) rotate(${i?3:-3}deg)` },
+          { transform:'translateY(0) rotate(0)' }
+        ], { duration:650, easing:'ease-in-out' });
+        burstConfetti(g, 24);
+        popHearts(g, 6);
+      })
+    }
+    mainGift.addEventListener('click', jiggleSmall, { once:true });
+
+    // Optional: Background music (uncomment and set your own file path)
+    // const bgm = new Audio('birthday-soft.mp3');
+    // bgm.volume = 0.35; // gentle
+    // mainGift.addEventListener('click', ()=>{ bgm.play().catch(()=>{}); }, { once:true });
+  </script>
+</body>
+</html>

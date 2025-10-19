@@ -1,10 +1,10 @@
 // 🌸 Xác định trang hiện tại
 const isHome = document.body.classList.contains("home");
-const isBirthday = document.body.classList.contains("birthday");
+const isBirthday = document.body.classList.contains("lanh");
 
 /* 🌷 TRANG CHÍNH (index.html) */
 if (isHome) {
-  // 🎶 Nhạc nền lofi (fade in nhẹ)
+  // 🎶 Nhạc nền fade-in
   window.addEventListener("DOMContentLoaded", () => {
     const bgMusic = document.getElementById("bgMusic");
     if (bgMusic) {
@@ -68,7 +68,7 @@ if (isHome) {
     }, 900);
   }
 
-  // 💥 Click chuyển sang birthday.html
+  // 💥 Click sang trang sinh nhật
   function smoothRedirect() {
     if (clickSound) {
       clickSound.currentTime = 0;
@@ -95,104 +95,10 @@ if (isHome) {
     }
 
     setTimeout(() => document.body.classList.add("fade-out"), 800);
-    setTimeout(() => (window.location.href = "birthday.html"), 1800);
+    setTimeout(() => (window.location.href = "lanh.html"), 1800);
   }
 
   mainHeart.addEventListener("click", smoothRedirect);
   goButton.addEventListener("click", smoothRedirect);
 }
 
-/* 🎂 TRANG SINH NHẬT (birthday.html) */
-if (isBirthday) {
-  const textElement = document.getElementById("typewriter");
-  const hiddenText = document.getElementById("typewriterText");
-  const baseSound = new Audio("videos/gphim.mp3");
-  baseSound.volume = 0.8;
-
-  // 🎵 tạo 3 bản sao âm thanh để tránh delay
-  const sounds = [baseSound, baseSound.cloneNode(), baseSound.cloneNode()];
-  let soundIndex = 0;
-
-  // 🖋️ Hàm gõ chữ
-  function startTyping() {
-    const content = hiddenText.innerHTML.trim();
-    let i = 0;
-
-    function typeWriter() {
-      if (i < content.length) {
-        textElement.innerHTML =
-          content.substring(0, i) + (i % 10 < 5 ? "|" : "");
-
-        const ch = content[i];
-        if (ch !== " " && ch !== "\n" && ch !== "<" && ch !== ">") {
-          const s = sounds[soundIndex];
-          s.currentTime = 0;
-          s.play().catch(() => {});
-          soundIndex = (soundIndex + 1) % sounds.length;
-        }
-
-        i++;
-        setTimeout(typeWriter, 40);
-      } else {
-        textElement.innerHTML = content;
-      }
-    }
-
-    typeWriter();
-  }
-
-  // 🚀 Mở khóa âm thanh rồi gõ ngay
-  document.body.addEventListener(
-    "click",
-    () => {
-      baseSound.play().then(() => {
-        baseSound.pause();
-        baseSound.currentTime = 0;
-        startTyping();
-      });
-    },
-    { once: true }
-  );
-
-  // 🌸 Ảnh, tim & hoa bay
-  setTimeout(() => {
-    const images = [
-      "images/lananh1.jpg","images/lananh2.jpg","images/lananh3.jpg",
-      "images/lananh4.jpg","images/lananh5.jpg","images/lananh6.jpg",
-      "images/lananh7.jpg","images/lananh8.jpg","images/lananh9.jpg"
-    ];
-
-    setInterval(() => {
-      const photo = document.createElement("img");
-      photo.src = images[Math.floor(Math.random() * images.length)];
-      photo.classList.add("photo-rise");
-      photo.style.left = Math.random() * 90 + "vw";
-      photo.style.width = Math.random() * 80 + 100 + "px";
-      photo.style.animationDuration = Math.random() * 5 + 10 + "s";
-      document.body.appendChild(photo);
-      setTimeout(() => photo.remove(), 15000);
-    }, 2000);
-
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.classList.add("heart-rise");
-      heart.innerHTML = "💖";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = Math.random() * 25 + 15 + "px";
-      heart.style.animationDuration = Math.random() * 4 + 6 + "s";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 7000);
-    }, 900);
-
-    setInterval(() => {
-      const petal = document.createElement("div");
-      petal.classList.add("petal");
-      petal.innerHTML = "🌸";
-      petal.style.left = Math.random() * 100 + "vw";
-      petal.style.fontSize = Math.random() * 18 + 10 + "px";
-      petal.style.animationDuration = Math.random() * 6 + 6 + "s";
-      document.body.appendChild(petal);
-      setTimeout(() => petal.remove(), 8000);
-    }, 2500);
-  }, 2500);
-}
