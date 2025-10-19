@@ -6,305 +6,241 @@
   <title>Happy Birthday – 19/10 – Vũ Lan Anh</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg: #fff7fb;
-      --pink: #ffb6c8;
-      --pink-dark: #ff98b2;
-      --lilac: #cbb7ff;
-      --lilac-dark:#b399ff;
-      --lemon: #ffe08a;
-      --lemon-dark:#ffd55a;
-      --ink:#6a5871;
-      --overlay: rgba(0,0,0,.55);
+      --pink-1:#ffe5f0; --pink-2:#ffd1e1; --pink-3:#ffb6c8; --pink-4:#ff8bad; --ink:#6a5871;
+      --overlay: rgba(255, 197, 219, .18);
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    *{box-sizing:border-box;margin:0;padding:0}
     body{
-      margin:0; background: radial-gradient(1200px 600px at 70% -10%, #ffe7f1 0%, transparent 60%),
-                                      radial-gradient(900px 500px at 10% 110%, #e9e1ff 0%, transparent 60%),
-                                      var(--bg);
-      font-family:Poppins, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji','Segoe UI Emoji';
-      color:var(--ink);
-      overflow-x:hidden;
+      height:100vh; overflow:hidden; color:var(--ink); font-family:Poppins,system-ui,sans-serif;
+      background:
+        radial-gradient(900px 480px at 10% 110%, #ffeaf4 0%, transparent 60%),
+        radial-gradient(1000px 520px at 90% -10%, #f6dfff 0%, transparent 60%),
+        linear-gradient(180deg, var(--pink-1) 0%, #fff0f6 60%, #fff6fb 100%);
     }
-    /* Header title */
-    .title{
-      text-align:center; margin-top:28px; user-select:none;
-      animation: fadeIn 1s ease both;
+
+    /* soft light sweep */
+    .glow{ position:fixed; inset:-20%; pointer-events:none; background:
+      radial-gradient(600px 300px at 20% 10%, rgba(255,255,255,.9), transparent 60%),
+      radial-gradient(700px 340px at 80% 20%, rgba(255,230,245,.9), transparent 60%);
+      filter:blur(28px); opacity:.6; animation:floatGlow 10s ease-in-out infinite alternate; }
+    @keyframes floatGlow{ from{ transform:translateY(-12px)} to{ transform:translateY(12px)} }
+
+    /* Heading */
+    .heading{ position:absolute; top:36px; left:50%; transform:translateX(-50%); text-align:center; user-select:none; }
+    .heading .date{ font-weight:700; letter-spacing:.12em; font-size:13px; opacity:.8 }
+    .heading h1{ margin:.25rem 0 0; font-family:'Dancing Script',cursive; font-size:48px; color:#ff7ea6; position:relative; }
+    .heading h1:after{ content:""; position:absolute; left:-10%; top:50%; width:120%; height:42%; transform:translateY(-50%) skewX(-12deg);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.9), transparent); filter: blur(8px); opacity:.0; animation: shine 6s ease-in-out 1.2s infinite; }
+    @keyframes shine{ 0%{opacity:0; transform:translate(-30%, -50%) skewX(-12deg)} 15%{opacity:.7} 30%{opacity:0; transform:translate(30%, -50%) skewX(-12deg)} 100%{opacity:0} }
+    .heading .hint{ font-size:13px; opacity:.8; margin-top:6px }
+
+    /* Floating pink hearts background */
+    .hearts-bg{ position:fixed; inset:0; pointer-events:none; }
+    .hearts-bg span{
+      position:absolute; width:var(--s,16px); height:var(--s,16px); transform:rotate(-45deg);
+      background:#ff8dad; border-radius:2px; opacity:var(--o,.8); filter:drop-shadow(0 6px 10px rgba(0,0,0,.12));
+      left:var(--l,50%); top:calc(100% + 20px); animation:floatUp var(--t,7s) linear infinite; animation-delay:var(--d,0s);
     }
-    .title .date{font-weight:700; letter-spacing:.1em; font-size:14px; opacity:.8}
-    .title h1{
-      margin:.25rem 0 0; font-family:'Dancing Script', cursive; font-size:52px; line-height:1.1;
-      color:#e6668a; text-shadow:0 2px 0 #fff;
-    }
-    .sub{font-size:14px; opacity:.8}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+    .hearts-bg span:before,.hearts-bg span:after{ content:""; position:absolute; width:100%; height:100%; background:inherit; border-radius:50% }
+    .hearts-bg span:before{ top:-50%; left:0 }
+    .hearts-bg span:after{ left:50%; top:0 }
+    @keyframes floatUp{ 0%{ transform:translateY(0) rotate(-45deg) scale(.85)} 100%{ transform:translateY(-120vh) rotate(-45deg) scale(1.1); opacity:0 } }
 
-    /* Balloons (decor) */
-    .balloons{position:fixed; inset:0; pointer-events:none;}
-    .balloon{position:absolute; width:22px; height:28px; border-radius:50% 50% 48% 52% / 58% 58% 42% 42%; opacity:.6; filter:drop-shadow(0 6px 10px rgba(0,0,0,.12)); animation: float 8.5s ease-in-out infinite;}
-    .balloon:after{content:""; position:absolute; left:50%; top:100%; width:1px; height:30px; background:#b9a7c1;}
-    @keyframes float{0%{transform:translateY(20px)}50%{transform:translateY(-20px)}100%{transform:translateY(20px)}}
+    /* wandering pink gift */
+    .gift{ position:absolute; width:150px; height:128px; cursor:pointer; user-select:none; will-change:transform; }
+    .gift .lid{ position:absolute; left:0; right:0; top:0; height:50px; border-radius:14px; background:linear-gradient(180deg,#ffd3df 0%, #ffc1d2 100%); transform-origin:50% 100%; transition:transform .6s cubic-bezier(.2,.9,.2,1), filter .6s; box-shadow:0 8px 16px rgba(0,0,0,.12) }
+    .gift .box{ position:absolute; inset:auto 0 0 0; height:88px; border-radius:14px; background:linear-gradient(180deg,var(--pink-3) 0%, var(--pink-4) 100%); box-shadow:0 12px 22px rgba(255, 138, 173,.35) }
+    .gift .ribbon-vert,.gift .ribbon-hz{ position:absolute; background:#ff5f8f; opacity:.95; mix-blend-mode:multiply; }
+    .gift .ribbon-vert{ width:22px; height:100%; left:50%; transform:translateX(-50%); border-radius:12px }
+    .gift .ribbon-hz{ top:46px; left:0; right:0; height:16px; border-radius:10px }
+    .gift .bow{ position:absolute; top:-16px; left:50%; width:90px; height:30px; transform:translateX(-50%); display:flex; justify-content:space-between }
+    .gift .bow span{ width:30px; height:30px; background:#ff5f8f; border-radius:50% 50% 50% 0; transform:rotate(45deg) }
+    .gift:hover{ filter:brightness(1.02) saturate(1.04) }
+    .gift.open .lid{ transform: translateY(-70px) rotateX(25deg) rotate(-6deg); filter:drop-shadow(0 18px 26px rgba(0,0,0,.16)) }
 
-    /* Gift stage */
-    .stage{display:flex; align-items:center; justify-content:center; gap:36px; min-height:62vh; padding:24px}
-    .gift{ position:relative; width:140px; height:120px; cursor:pointer; user-select:none;}
-    .gift .box{ position:absolute; inset:auto 0 0 0; height:82px; border-radius:12px; box-shadow:0 10px 18px rgba(0,0,0,.12), inset 0 -4px 0 rgba(255,255,255,.6);}
-    .gift .lid{ position:absolute; left:0; right:0; top:0; height:46px; border-radius:12px; transform-origin:50% 100%; transition: transform .55s cubic-bezier(.2,.9,.2,1), box-shadow .55s; box-shadow:0 8px 16px rgba(0,0,0,.12);}
-    .gift .ribbon-vert{ position:absolute; left:50%; transform:translateX(-50%); width:20px; height:100%; border-radius:10px; mix-blend-mode:multiply; opacity:.9}
-    .gift .ribbon-hz{ position:absolute; top:44px; left:0; right:0; height:16px; border-radius:8px; mix-blend-mode:multiply; opacity:.9}
-    .gift .bow{ position:absolute; top:-14px; left:50%; width:80px; height:28px; transform:translateX(-50%); display:flex; justify-content:space-between;}
-    .gift .bow span{ width:28px; height:28px; border-radius:50% 50% 50% 0; transform:rotate(45deg);}    
+    /* sparkles around gift */
+    .sparkles{ position:absolute; inset:0; pointer-events:none }
+    .sparkles i{ position:absolute; width:6px; height:6px; background:linear-gradient(180deg,#fff,#ffe2ef); border-radius:50%; opacity:0; animation: twinkle 2.2s ease-in-out infinite; box-shadow:0 0 12px rgba(255,255,255,.9) }
+    @keyframes twinkle{ 0%,100%{opacity:0; transform:scale(.6)} 40%{opacity:1; transform:scale(1)} }
 
-    /* Gift color themes */
-    .gift.pink .box{ background:linear-gradient(180deg, var(--pink) 0%, var(--pink-dark) 100%);}
-    .gift.pink .lid{ background:linear-gradient(180deg, #ffd3df 0%, #ffc1d2 100%);} 
-    .gift.pink .ribbon-vert, .gift.pink .ribbon-hz, .gift.pink .bow span{ background:#ff7aa0;}
-
-    .gift.lilac .box{ background:linear-gradient(180deg, var(--lilac) 0%, var(--lilac-dark) 100%);}  
-    .gift.lilac .lid{ background:linear-gradient(180deg, #e4dbff 0%, #d6c8ff 100%);} 
-    .gift.lilac .ribbon-vert, .gift.lilac .ribbon-hz, .gift.lilac .bow span{ background:#8d77ff;}
-
-    .gift.lemon .box{ background:linear-gradient(180deg, var(--lemon) 0%, var(--lemon-dark) 100%);} 
-    .gift.lemon .lid{ background:linear-gradient(180deg, #fff0b3 0%, #ffe48a 100%);} 
-    .gift.lemon .ribbon-vert, .gift.lemon .ribbon-hz, .gift.lemon .bow span{ background:#ffb400;}
-
-    /* Hover wiggle */
-    .gift:hover{ transform:translateY(-2px) scale(1.02); transition:.25s}
-
-    /* Opened state */
-    .gift.open .lid{ transform: translateY(-64px) rotateX(25deg) rotate(-6deg); box-shadow:0 18px 26px rgba(0,0,0,.16)}
-
-    /* Confetti */
-    .confetti{ position:absolute; left:50%; top:10px; width:0; height:0; pointer-events:none; }
-    .confetti span{ position:absolute; width:10px; height:16px; opacity:0; border-radius:2px; animation: fall linear forwards;}
-    @keyframes fall{ 0%{opacity:0; transform:translate(-50%,-40px) rotate(0)} 10%{opacity:1} 100%{opacity:1; transform:translate(var(--tx), var(--ty)) rotate(var(--rot))}}
-
-    /* Hearts pop */
-    .hearts{ position:absolute; left:50%; bottom:70px; width:0; height:0; pointer-events:none; }
-    .heart{ position:absolute; width:16px; height:16px; background:#ff7aa0; transform:translate(-50%,0) rotate(-45deg); opacity:0; animation: rise 1.4s ease-out forwards;}
-    .heart:before,.heart:after{ content:""; position:absolute; width:16px; height:16px; background:inherit; border-radius:50%}
-    .heart:before{ top:-8px; left:0}
-    .heart:after{ left:8px; top:0}
-    @keyframes rise{ 0%{opacity:0; transform:translate(-50%,10px) rotate(-45deg) scale(.5)} 20%{opacity:1} 100%{opacity:0; transform:translate(calc(-50% + var(--hx)), -120px) rotate(-45deg) scale(1)} }
+    /* Hearts pop (confetti) */
+    .confetti{ position:absolute; left:50%; top:6px; width:0; height:0; pointer-events:none }
+    .confetti span{ position:absolute; width:14px; height:14px; background:#ff7aa0; transform:rotate(-45deg); opacity:0; animation: riseHeart 2s ease-out forwards }
+    .confetti span:before,.confetti span:after{ content:""; position:absolute; width:100%; height:100%; background:inherit; border-radius:50% }
+    .confetti span:before{ top:-50%; left:0 }
+    .confetti span:after{ left:50%; top:0 }
+    @keyframes riseHeart{ 0%{opacity:0; transform:translate(-50%,8px) rotate(-45deg) scale(.5)} 20%{opacity:1} 100%{opacity:0; transform:translate(calc(-50% + var(--hx)), -160px) rotate(-45deg) scale(1.2)} }
 
     /* Modal letter */
-    .overlay{ position:fixed; inset:0; background:var(--overlay); display:none; place-items:center; z-index:50; }
-    .overlay.show{ display:grid }
-    .card{ position:relative; width:min(92vw, 760px); background:#fff; border-radius:24px; padding:24px 24px 28px; box-shadow:0 18px 40px rgba(0,0,0,.28); overflow:hidden; }
-    .card .shine{ position:absolute; inset:-20%; background: radial-gradient(300px 180px at 20% 10%, rgba(255,240,248,.9), transparent 60%), radial-gradient(300px 160px at 90% 20%, rgba(235,228,255,.9), transparent 60%); filter:blur(20px); pointer-events:none }
-    .card h2{ margin:0 0 6px; font-family:'Dancing Script', cursive; font-size:42px; color:#e6668a; text-align:center;}
-    .card .meta{ text-align:center; font-weight:600; letter-spacing:.06em; font-size:12px; opacity:.7; margin-bottom:8px}
-    .card .content{ font-size:16px; line-height:1.7; white-space:pre-line; }
-    .card .close{ position:absolute; top:10px; right:12px; border:0; background:transparent; font-size:22px; cursor:pointer; color:#b28aa6 }
+    .overlay{ position:fixed; inset:0; display:none; place-items:center; z-index:50; background:var(--overlay); backdrop-filter: blur(6px) saturate(1.1) }
+    .overlay.show{ display:grid; animation:fadeIn .35s ease }
+    @keyframes fadeIn{ from{opacity:0} to{opacity:1} }
+    .card{ position:relative; width:min(92vw,760px); background:#fff; border-radius:26px; padding:26px 28px 32px; box-shadow:0 20px 44px rgba(0,0,0,.28); overflow:hidden }
+    .card .shine{ position:absolute; inset:-18%; background:
+      radial-gradient(320px 190px at 15% 10%, rgba(255,240,248,.9), transparent 60%),
+      radial-gradient(320px 170px at 85% 20%, rgba(235,228,255,.9), transparent 60%);
+      filter:blur(18px); pointer-events:none; }
+    .card h2{ margin:0 0 6px; font-family:'Dancing Script',cursive; font-size:46px; color:#e6668a; text-align:center }
+    .card .meta{ text-align:center; font-weight:600; letter-spacing:.06em; font-size:12px; opacity:.7; margin-bottom:10px }
+    .card .content{ font-size:16.5px; line-height:1.8; white-space:pre-line; position:relative }
+    .card .content:after{ content:""; position:absolute; right:-22px; top:0; width:140px; height:100%; background: radial-gradient(120px 200px at 30% 10%, rgba(255,220,240,.65), transparent 60%) }
+    .card .sign{ margin-top:16px; font-weight:600; text-align:right; color:#ff7ea6 }
+    .card .close{ position:absolute; top:10px; right:14px; border:0; background:transparent; font-size:22px; cursor:pointer; color:#b28aa6 }
 
-    .cta{ text-align:center; margin:10px 0 24px; font-size:14px; opacity:.8 }
+    /* Music toggle */
+    .music{ position:fixed; right:14px; bottom:14px; display:flex; align-items:center; gap:8px; background:rgba(255,255,255,.75); border-radius:999px; padding:8px 12px; box-shadow:0 6px 16px rgba(0,0,0,.12); backdrop-filter: blur(6px) }
+    .music button{ border:0; background:#ff8dad; color:#fff; width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:16px }
+    .music .label{ font-size:12px; opacity:.8 }
 
-    /* Footer note */
-    .footer-note{ text-align:center; font-size:12px; opacity:.6; margin:8px 0 24px}
-
-    /* Responsive */
     @media (max-width:640px){
-      .title h1{ font-size:38px }
-      .stage{ gap:18px; min-height:56vh }
-      .gift{ width:120px; height:102px }
-      .gift .box{ height:74px }
-      .gift .lid{ height:40px }
-      .gift.open .lid{ transform: translateY(-54px) rotateX(25deg) rotate(-6deg) }
+      .heading h1{ font-size:40px }
+      .gift{ width:130px; height:112px }
+      .gift .box{ height:80px }
+      .gift .lid{ height:46px }
+      .card h2{ font-size:40px }
     }
   </style>
 </head>
 <body>
-
-  <div class="title">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="heading">
     <div class="date">19 / 10</div>
-    <h1>Happy Birthday, Vũ Lan Anh! 🎂</h1>
-    <div class="sub">Nhấn vào hộp quà ở giữa để mở thư 🎁</div>
+    <h1>Happy Birthday, Vợ Yêu! 🎂</h1>
   </div>
 
-  <!-- Floating balloons -->
-  <div class="balloons" aria-hidden="true" id="balloons"></div>
+  <!-- floating hearts background -->
+  <div class="hearts-bg" id="hearts"></div>
 
-  <!-- Gifts stage -->
-  <section class="stage">
-    <!-- Left small gift -->
-    <div class="gift lilac" data-small>
-      <div class="lid"></div>
-      <div class="box"></div>
-      <div class="ribbon-vert"></div>
-      <div class="ribbon-hz"></div>
-      <div class="bow"><span></span><span></span></div>
-      <div class="confetti"></div>
-      <div class="hearts"></div>
-    </div>
+  <!-- wandering pink gift -->
+  <div class="gift" id="gift" aria-label="Hộp quà màu hồng">
+    <div class="lid"></div>
+    <div class="box"></div>
+    <div class="ribbon-vert"></div>
+    <div class="ribbon-hz"></div>
+    <div class="bow"><span></span><span></span></div>
+    <div class="confetti"></div>
+    <div class="sparkles" id="sparkles"></div>
+  </div>
 
-    <!-- Main gift (click to open) -->
-    <div class="gift pink" id="mainGift" aria-label="Hộp quà chính">
-      <div class="lid"></div>
-      <div class="box"></div>
-      <div class="ribbon-vert"></div>
-      <div class="ribbon-hz"></div>
-      <div class="bow"><span></span><span></span></div>
-      <div class="confetti"></div>
-      <div class="hearts"></div>
-    </div>
-
-    <!-- Right small gift -->
-    <div class="gift lemon" data-small>
-      <div class="lid"></div>
-      <div class="box"></div>
-      <div class="ribbon-vert"></div>
-      <div class="ribbon-hz"></div>
-      <div class="bow"><span></span><span></span></div>
-      <div class="confetti"></div>
-      <div class="hearts"></div>
-    </div>
-  </section>
-
-  <div class="cta">(Click hộp quà ở giữa nhé ✨)</div>
-
-  <div class="footer-note">Made with 💛 for a cute birthday surprise</div>
-
-  <!-- Modal Letter -->
+  <!-- modal letter -->
   <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Thiệp chúc mừng">
     <div class="card">
-      <button class="close" id="closeBtn" aria-label="Đóng"><i class="fa-solid fa-xmark"></i></button>
+      <button class="close" id="closeBtn" aria-label="Đóng">✕</button>
       <div class="shine"></div>
-      <h2>Gửi Vũ Lan Anh 🤍</h2>
+      <h2>Gửi Vợ Yêu 🤍</h2>
       <div class="meta">Happy Birthday • 19/10</div>
       <div class="content" id="letter"></div>
+      <div class="sign">— From Anh ❤️</div>
     </div>
   </div>
 
-  <script>
-    // --------- Simple helpers ---------
-    const $ = (sel, root=document) => root.querySelector(sel);
-    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+  <!-- music control -->
+  <div class="music" id="musicCtl">
+    <button id="musicBtn" aria-label="Phát / Tạm dừng">▶</button>
+    <div class="label">Nhạc nền</div>
+  </div>
+  <audio id="bgm" preload="auto" loop src="/videos/fallinlove.mp3"></audio>
+  <!-- Bạn có thể thay src phía trên bằng file mp3 của bạn → ví dụ: ./romantic-piano.mp3 -->
 
-    // Balloons spawn
-    (function spawnBalloons(){
-      const colors = ['#ffd1dc','#d9ceff','#ffe5a1','#c3f0ff','#ffd1a7'];
-      const area = $('#balloons');
-      for(let i=0;i<26;i++){
-        const b = document.createElement('div');
-        b.className='balloon';
-        b.style.background=colors[i%colors.length];
-        b.style.left = Math.random()*100+'%';
-        b.style.top = (10+Math.random()*80)+'%';
-        b.style.animationDelay = (Math.random()*6)+'s';
-        b.style.animationDuration = (7+Math.random()*4)+'s';
-        b.style.transform = `translateY(${Math.random()*20-10}px)`;
-        area.appendChild(b);
+  <script>
+    const $ = (s, r=document)=>r.querySelector(s);
+    const $$ = (s, r=document)=>Array.from(r.querySelectorAll(s));
+
+    // build hearts background with varied sizes/speeds
+    (function buildHearts(){
+      const c = $('#hearts');
+      const N = 42;
+      for(let i=0;i<N;i++){
+        const h = document.createElement('span');
+        h.style.setProperty('--l', (Math.random()*100)+'%');
+        h.style.setProperty('--s', (10+Math.random()*18)+'px');
+        h.style.setProperty('--t', (6+Math.random()*8)+'s');
+        h.style.setProperty('--d', (Math.random()*6)+'s');
+        h.style.setProperty('--o', (0.55+Math.random()*0.45));
+        c.appendChild(h);
       }
     })();
 
-    // Prepare gifts visuals (add inner elements if needed)
-    $$('.gift').forEach(g=>{
-      // visual sizes of ribbons already in HTML
-    });
+    // wandering gift logic (random targets, smooth tween)
+    const gift = $('#gift');
+    let vw = innerWidth, vh = innerHeight;
+    let pos = { x: vw*0.5 - 75, y: vh*0.55 - 64 };
+    function randomTarget(){
+      const margin = 40; // keep inside viewport
+      const x = Math.random()*(vw-150-margin*2)+margin;
+      const y = Math.random()*(vh-160-margin*2)+margin+60; // avoid header
+      return {x,y};
+    }
+    function moveGift(){
+      const t = randomTarget();
+      const dx = t.x - pos.x, dy = t.y - pos.y;
+      const dist = Math.hypot(dx,dy);
+      const dur = Math.min(2200 + dist*2.2, 5200); // ms
+      gift.animate([
+        { transform: `translate(${pos.x}px, ${pos.y}px) rotate(0deg)` },
+        { transform: `translate(${t.x}px, ${t.y}px) rotate(${(Math.random()*6-3).toFixed(2)}deg)` }
+      ], { duration: dur, easing: 'ease-in-out', fill:'forwards' }).onfinish = ()=>{ pos = t; setTimeout(moveGift, 400+Math.random()*600); };
+    }
+    // start after small delay
+    setTimeout(moveGift, 600);
+    addEventListener('resize', ()=>{ vw = innerWidth; vh = innerHeight; });
 
-    // Confetti generator
-    function burstConfetti(container, count=60){
-      const ctn = $('.confetti', container);
-      ctn.innerHTML = '';
-      const colors = ['#ff7aa0','#8d77ff','#ffd166','#6ed0ff','#95e1d3'];
+    // sparkles around gift
+    (function buildSparkles(){
+      const s = $('#sparkles');
+      for(let i=0;i<18;i++){
+        const p = document.createElement('i');
+        p.style.left = (Math.random()*100)+'%';
+        p.style.top = (Math.random()*100)+'%';
+        p.style.animationDelay = (Math.random()*2)+'s';
+        s.appendChild(p);
+      }
+    })();
+
+    // Confetti hearts burst
+    function burstHearts(container, count=26){
+      const ctn = $('.confetti', container); ctn.innerHTML='';
       for(let i=0;i<count;i++){
         const s = document.createElement('span');
-        const dx = (Math.random()*400-200) + 'px';
-        const dy = (120 + Math.random()*260) + 'px';
-        const rot = (Math.random()*540-270) + 'deg';
-        s.style.setProperty('--tx', dx);
-        s.style.setProperty('--ty', dy);
-        s.style.setProperty('--rot', rot);
-        s.style.left = (Math.random()*12-6)+'px';
-        s.style.background = colors[i%colors.length];
-        s.style.animationDuration = (1 + Math.random()*1.2) + 's';
-        s.style.animationDelay = (Math.random()*0.35) + 's';
+        s.style.setProperty('--hx', (Math.random()*160-80)+'px');
+        s.style.left = (Math.random()*24-12)+'px';
+        s.style.animationDelay = (Math.random()*0.35)+'s';
         ctn.appendChild(s);
       }
     }
 
-    // Hearts pop
-    function popHearts(container, count=12){
-      const wrap = $('.hearts', container);
-      wrap.innerHTML = '';
-      for(let i=0;i<count;i++){
-        const h = document.createElement('div');
-        h.className='heart';
-        h.style.setProperty('--hx', (Math.random()*100-50)+'px');
-        h.style.left = (Math.random()*40-20)+'px';
-        h.style.animationDelay = (i*0.05)+'s';
-        wrap.appendChild(h);
-      }
-    }
-
-    // Typewriter effect for the letter
+    // Typewriter message
     const message = `Chúc mừng sinh nhật em 🎂🤍\n\nTuổi mới đến rồi, anh chúc em thật nhiều niềm vui, thật nhiều bình an và hạnh phúc.\nMong em luôn giữ được nụ cười tươi, trái tim ấm, và niềm tin vào những điều tốt đẹp quanh mình.\n\nAnh biết sinh nhật năm nay mình không ở cạnh nhau, nhưng khoảng cách không làm lời chúc của anh bớt ý nghĩa đâu.\nAnh chỉ mong ngày hôm nay em thật vui, được yêu thương thật nhiều, và cảm nhận rõ rằng có một người ở xa vẫn đang nghĩ về em – nhẹ nhàng mà chân thành.\n\nChúc em tuổi mới luôn gặp may mắn, làm điều mình thích, sống an nhiên và rạng rỡ hơn cả năm cũ.\nDù xa nhau, anh vẫn luôn mong điều tốt đẹp nhất sẽ đến với em – từng ngày, từng tháng, từng tuổi mới.\n\nChúc mừng sinh nhật cô gái của anh – chúc cho em luôn hạnh phúc, dù ở bất cứ nơi đâu. 💛`;
 
-    function typeWriter(el, text, speed=18){
-      el.textContent = '';
-      let i = 0;
-      (function write(){
-        el.textContent = text.slice(0, i++);
-        if(i <= text.length){ requestAnimationFrame(()=> setTimeout(write, speed)); }
-      })();
+    function typeWriter(el, text, speed=16){
+      el.textContent=''; let i=0;
+      (function write(){ el.textContent = text.slice(0, i++); if(i<=text.length){ requestAnimationFrame(()=> setTimeout(write, speed)); } })();
     }
 
-    // Main interactions
-    const mainGift = $('#mainGift');
+    // Modal & interactions
     const overlay = $('#overlay');
     const closeBtn = $('#closeBtn');
-
-    // Visual assembly of gifts (DOM already made). Add sizes for ribbons & bow positions
-    $$('.gift').forEach(g=>{
-      const lid = $('.lid', g); const box = $('.box', g);
-      const rv = $('.ribbon-vert', g); const rh = $('.ribbon-hz', g);
-      const bow = $('.bow', g); const spans = $$('span', bow);
-      rv.style.height = (g.clientHeight)+'px';
-      rh.style.width = '100%';
-      spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
-      spans[1].style.transform = 'rotate(45deg) translate(-6px, 6px) scaleX(-1)';
+    gift.addEventListener('click', ()=>{
+      if(gift.classList.contains('open')) return;
+      gift.classList.add('open');
+      burstHearts(gift, 30);
+      setTimeout(()=>{ overlay.classList.add('show'); typeWriter($('#letter'), message, 14); }, 700);
+      // play music on first open
+      playMusic();
     });
-
-    // Click only on main gift to open
-    mainGift.addEventListener('click', ()=>{
-      if(mainGift.classList.contains('open')) return; // prevent double
-      mainGift.classList.add('open');
-      burstConfetti(mainGift, 90);
-      popHearts(mainGift, 14);
-      // Show modal after a tiny delay so lid can move
-      setTimeout(()=>{
-        overlay.classList.add('show');
-        typeWriter($('#letter'), message, 14);
-      }, 650);
-    });
-
-    // Close modal
     function closeModal(){ overlay.classList.remove('show'); }
-    overlay.addEventListener('click', (e)=>{ if(e.target===overlay) closeModal(); });
+    overlay.addEventListener('click', e=>{ if(e.target===overlay) closeModal(); });
     closeBtn.addEventListener('click', closeModal);
 
-    // Decorative: tiny jiggle on small side gifts when main opens
-    function jiggleSmall(){
-      $$('[data-small]').forEach((g,i)=>{
-        g.animate([
-          { transform:'translateY(0) rotate(0)' },
-          { transform:`translateY(-6px) rotate(${i?3:-3}deg)` },
-          { transform:'translateY(0) rotate(0)' }
-        ], { duration:650, easing:'ease-in-out' });
-        burstConfetti(g, 24);
-        popHearts(g, 6);
-      })
-    }
-    mainGift.addEventListener('click', jiggleSmall, { once:true });
-
-    // Optional: Background music (uncomment and set your own file path)
-    // const bgm = new Audio('birthday-soft.mp3');
-    // bgm.volume = 0.35; // gentle
-    // mainGift.addEventListener('click', ()=>{ bgm.play().catch(()=>{}); }, { once:true });
+    // Music control
+    const bgm = $('#bgm');
+    const musicBtn = $('#musicBtn');
+    function playMusic(){ bgm.volume = 0.35; bgm.play().catch(()=>{}); musicBtn.textContent='⏸'; }
+    function toggleMusic(){ if(bgm.paused){ playMusic(); } else { bgm.pause(); musicBtn.textContent='▶'; } }
+    musicBtn.addEventListener('click', toggleMusic);
   </script>
 </body>
 </html>
